@@ -6,8 +6,34 @@
 .switch {
     transition: transform 0.3s ease-in-out; 
 }
-
-
+.check-input{
+    /* -webkit-appearance: none;
+    -moz-appearance: none; */
+    appearance: none;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+}
+.checkbox{
+    width: 20px;
+    height: 20px;
+    padding: 4px;
+    font-size: 12px;
+    border-radius: 3px;
+    color: white;
+    outline: none;
+    border: 1px solid hsl(229, 24%, 87%);
+    transition: all 0.2s ease;
+}
+.check-input:checked ~ i{
+    background-color: hsl(213, 80%, 30%);
+}
+.bg-checked {
+    background-color:hsl(231, 100%, 99%);
+    border: solid 1px hsl(213, 80%, 30%);
+}
 
 @variants hover{
     .plan-hover{
