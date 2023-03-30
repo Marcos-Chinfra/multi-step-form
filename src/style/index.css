@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
+.center-main{
+    left: calc(100% - 96.5%); 
+}
 .switch {
     transition: transform 0.3s ease-in-out; 
 }
@@ -34,6 +36,7 @@
     background-color:hsl(231, 100%, 99%);
     border: solid 1px hsl(213, 80%, 30%);
 }
+
 
 @variants hover{
     .plan-hover{

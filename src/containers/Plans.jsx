@@ -6,27 +6,27 @@ const Plans = () => {
     const toggle = () => setIsOn(!isOn);
 
     return (
-        <div className='flex flex-col p-4 gap-2'>
+        <div className='flex flex-col p-4 gap-2 lg:w-125'>
             <h1 className='text-2xl font-bold text-Marine-blue'>Select your plan</h1>
             <span className='text-Cool-gray font-normal'>You have the option of monthy or yearly biling.</span>
-            <ul className='flex flex-col gap-3 mt-2'>
-                <li className='border flex items-center justify-start rounded-md p-3 hover:plan-hover'>
+            <ul className='flex flex-col gap-3 mt-2 lg:flex-row'>
+                <li className='border flex items-center justify-start rounded-md p-3 hover:plan-hover lg:flex-col lg:w-36 lg:items-start'>
                     <i className='w-10 h-10 bg-arcade'/>
-                    <div className='ml-6'>
+                    <div className='ml-6 lg:mt-11 lg:ml-0'>
                         <h3 className='text-md font-medium text-Marine-blue'>Arcade</h3>
                         <span className='text-sm text-Cool-gray font-normal'>$9/mo</span>
                     </div>
                 </li>
-                <li className='border flex items-center justify-start rounded-md p-3 hover:plan-hover'>  
+                <li className='border flex items-center justify-start rounded-md p-3 hover:plan-hover lg:flex-col lg:w-36 lg:items-start'>  
                     <i className='w-10 h-10 bg-advanced'/>
-                    <div className='ml-6'>
+                    <div className='ml-6 lg:mt-11 lg:ml-0'>
                         <h3 className='text-md font-medium text-Marine-blue'>Advanced</h3>
                         <span className='text-sm text-Cool-gray font-normal'>$12/mo</span>
                     </div>
                 </li>
-                <li className='border flex items-center justify-start rounded-md p-3 hover:plan-hover'>
+                <li className='border flex items-center justify-start rounded-md p-3 hover:plan-hover lg:flex-col lg:w-36 lg:items-start'>
                     <i className='w-10 h-10 bg-pro'/>
-                    <div className='ml-6'>
+                    <div className='ml-6 lg:mt-11 lg:ml-0'>
                         <h3 className='text-md font-medium text-Marine-blue'>Pro</h3>
                         <span className='text-sm text-Cool-gray font-normal'>$15/mo</span>
                     </div>
