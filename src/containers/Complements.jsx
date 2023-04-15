@@ -7,7 +7,7 @@ const Complements = () => {
 
     return (
         <div className='flex flex-col p-4 gap-2' >
-            <h1 className='text-2xl font-bold'>
+            <h1 className='text-2xl font-bold text-Marine-blue'>
                 Pick add-ons
             </h1>
             <span className='text-Cool-gray font-normal'>

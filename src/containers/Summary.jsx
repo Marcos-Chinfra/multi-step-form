@@ -3,7 +3,7 @@ import React from 'react';
 const Summary = () => {
     return (
         <div className='flex flex-col p-4 gap-2 lg:w-125 lg:mx-auto lg:p-5' >
-        <h1 className='text-2xl font-bold'>
+        <h1 className='text-2xl font-bold text-Marine-blue'>
             Finishing up 
         </h1>
         <span className='text-Cool-gray font-normal'>

@@ -21,7 +21,7 @@ module.exports = {
         'Light-blue': 'hsl(206, 94%, 87%)' ,
         'Strawberry-red': 'hsl(354, 84%, 57%)',
         'Cool-gray':'hsl(231, 11%, 63%)' ,
-        'Ligth-gray': 'hsl(229, 24%, 87%)',
+        'Light-gray': 'hsl(229, 24%, 87%)',
         'Magnolia':'hsl(217, 100%, 97%)' ,
         'Alabaster': 'hsl(231, 100%, 99%)',
         'White': 'hsl(0, 0%, 100%)' 
