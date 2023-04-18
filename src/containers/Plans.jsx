@@ -1,34 +1,90 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Plans = () => {
-    
     const [isOn, setIsOn] = useState(false);
+    const [arcade, setArcade] = useState(false);
+    const [ advanced, setAdvanced] = useState(false)
+    const [pro, setPro] = useState(false)
+
     const toggle = () => setIsOn(!isOn);
+    const toggleArcade = () => {
+        setArcade(true)
+        setAdvanced(false)
+        setPro(false)
+    }
+    const toggleAdvanced = () => {
+        setAdvanced(true)
+        setArcade(false)
+        setPro(false)
+    }
+    const togglePro = () => {
+        setPro(true)
+        setAdvanced(false)
+        setArcade(false)
+    }
 
     return (
         <div className='flex flex-col p-4 gap-2 lg:w-125'>
             <h1 className='text-2xl font-bold text-Marine-blue'>Select your plan</h1>
-            <span className='text-Cool-gray font-normal'>You have the option of monthy or yearly biling.</span>
+            <span className='text-Cool-gray font-normal'>You have the option of monthly or yearly billing.</span>
             <ul className='flex flex-col gap-3 mt-2 lg:flex-row'>
-                <li className='border flex items-center justify-start rounded-md p-3 hover:plan-hover lg:flex-col lg:w-36 lg:items-start'>
+                <li 
+                    className={`border flex items-center justify-start rounded-md p-3 hover:plan-hover ${arcade ? 'bg-Alabaster border-Marine-blue' : ''} lg:flex-col lg:w-36 lg:items-start`}
+                    onClick={toggleArcade}
+                >
                     <i className='w-10 h-10 bg-arcade'/>
                     <div className='ml-6 lg:mt-11 lg:ml-0'>
                         <h3 className='text-md font-medium text-Marine-blue'>Arcade</h3>
-                        <span className='text-sm text-Cool-gray font-normal'>$9/mo</span>
+                        <span className='text-sm text-Cool-gray font-normal flex flex-col gap-1'>
+                            {isOn 
+                            ?
+                            <>
+                                <span>$90/yr</span>
+                                <span className='text-Marine-blue text-xs'>2 months free</span>
+                            </>
+                            : 
+                            '$9/mo'}
+                        </span>
                     </div>
                 </li>
-                <li className='border flex items-center justify-start rounded-md p-3 hover:plan-hover lg:flex-col lg:w-36 lg:items-start'>  
+                <li 
+                    className={`border flex items-center justify-start rounded-md p-3 hover:plan-hover ${advanced ? 'bg-Alabaster border-Marine-blue' : ''} lg:flex-col lg:w-36 lg:items-start`}
+                    onClick={toggleAdvanced}
+                >  
                     <i className='w-10 h-10 bg-advanced'/>
                     <div className='ml-6 lg:mt-11 lg:ml-0'>
                         <h3 className='text-md font-medium text-Marine-blue'>Advanced</h3>
-                        <span className='text-sm text-Cool-gray font-normal'>$12/mo</span>
+                        <span className='text-sm text-Cool-gray font-normal flex flex-col gap-1'>
+                        {isOn 
+                        ? 
+                        <>
+                            <span>$120/yr</span>
+                            <span className='text-Marine-blue text-xs'>2 months free</span>
+                        </> 
+                        : 
+                        '$12/mo'}
+                        
+                        </span>
                     </div>
                 </li>
-                <li className='border flex items-center justify-start rounded-md p-3 hover:plan-hover lg:flex-col lg:w-36 lg:items-start'>
+                <li 
+                    className={`border flex items-center justify-start rounded-md p-3 hover:plan-hover ${pro ? 'bg-Alabaster border-Marine-blue' : ''} lg:flex-col lg:w-36 lg:items-start`}
+                    onClick={togglePro}
+                >
                     <i className='w-10 h-10 bg-pro'/>
                     <div className='ml-6 lg:mt-11 lg:ml-0'>
                         <h3 className='text-md font-medium text-Marine-blue'>Pro</h3>
-                        <span className='text-sm text-Cool-gray font-normal'>$15/mo</span>
+                        <span className='text-sm text-Cool-gray font-normal flex flex-col gap-1'>
+                        {isOn 
+                        ? 
+                        <>
+                            <span>$150/yr</span>
+                            <span className='text-Marine-blue text-xs'>2 months free</span>
+                        </>  
+                        : 
+                        '$15/mo'}
+                        </span>
                     </div>
                 </li>
             </ul>
@@ -45,6 +101,11 @@ const Plans = () => {
                 <span className={`font-medium text-sm ${isOn ? "text-Marine-blue" : "text-Cool-gray" }`}>
                     Yearly
                 </span>
+            </div>
+            <div className='w-full h-20 p-4 bg-white flex justify-between items-center fixed right-0 left-0 bottom-0 lg:static lg:mt-10'>
+                <Link to={'/'} className='text-Cool-gray cursor-pointer'>Go Back</Link>
+                <Link to={'/add-ons'} className=' bg-Marine-blue -2 w-24 h-10 text-white rounded flex justify-center items-center' >Next Step</Link>
+                {/* <button className=' bg-Marine-blue p-2 w-24 h-10 text-white rounded' > Next Step </button> */}
             </div>
         </div>
     );
