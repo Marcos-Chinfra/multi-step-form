@@ -10,7 +10,8 @@ const Footer = () => {
         case '/':
             content = (
                 <div className=' bg-Marine-blue p-2 w-24 h-10 text-white rounded flex justify-center items-center'>
-                    <Link to={'/select-plan'}>Next Step</Link>
+                    {/* <Link to={'/select-plan'}>Next Step</Link> */}
+                    <button type='submit'>Next Step</button>
                 </div>
             )
             break;
