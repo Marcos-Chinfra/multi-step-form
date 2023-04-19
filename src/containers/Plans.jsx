@@ -108,7 +108,7 @@ const Plans = () => {
                     Yearly
                 </span>
             </div>
-            <div className='w-full h-20 p-4 bg-white flex justify-between items-center fixed right-0 left-0 bottom-0 lg:static lg:mt-10'>
+            <div className='w-full h-20 p-4 bg-white flex justify-between items-center fixed right-0 left-0 bottom-0 lg:static lg:mt-9'>
                 <Link to={'/'} className='text-Cool-gray cursor-pointer hover:back'>Go Back</Link>
                 <Link to={'/add-ons'} className=' bg-Marine-blue p-2 w-24 h-10 text-white rounded flex justify-center items-center hover:next-bg' >Next Step</Link>
             </div>
