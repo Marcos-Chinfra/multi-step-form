@@ -7,7 +7,7 @@ import Plans from '../containers/Plans';
 import Complements from '../containers/Complements';
 import Summary from '../containers/Summary';
 import Success from '../containers/Success';
-import NotFound from '../containers/NotFound';
+// import NotFound from '../containers/NotFound';
 import Layout from '../components/Layout';
 import '../style/index.css'
 
@@ -23,7 +23,7 @@ const App = () => {
                         <Route exact path='/add-ons' element={<Complements />}/>
                         <Route exact path='/summary' element={<Summary />}/>
                         <Route exact path='/success' element={<Success />}/>
-                        <Route exact path='*' element={<NotFound />}/>
+                        {/* <Route exact path='*' element={<NotFound />}/> */}
                     </Routes>
                 </Layout>
             </BrowserRouter>

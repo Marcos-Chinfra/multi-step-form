@@ -8,9 +8,9 @@ const useInitialState = () => {
     const [state, setState] = useState(null);
     const [state2, setState2] = useState(null);
     const [state3, setState3] = useState(null);
-
     const [selectedPlan, setSelectedPlan] = useState(null); 
     const [selectedAddOns, setSelectedAddOns] = useState([]);
+    const [total, setTotal] = useState( '')
 
 
     const plans = {
@@ -51,36 +51,45 @@ const useInitialState = () => {
 
     const handleSum = () => {
         if(state){
-            setSelectedAddOns(prevAddOns => [...prevAddOns, addOns.one.month])
-            // if(isOn){
-            //     setSelectedAddOns(prevAddOns => [...prevAddOns, addOns.one.year])
-            // }else{
-            //     setSelectedAddOns(prevAddOns => [...prevAddOns, addOns.one.month])
-            // }
+            if(isOn){
+                setSelectedAddOns(prevAddOns => [...prevAddOns, addOns.one.year])
+            }else{
+                setSelectedAddOns(prevAddOns => [...prevAddOns, addOns.one.month])
+            }
         }
         if(state2){
-
-            setSelectedAddOns(prevAddOns => [...prevAddOns, addOns.two.month])
-            // if(isOn){
-            //     setSelectedAddOns(prevAddOns => [...prevAddOns, addOns.two.year])
-            // }else{
-            //     setSelectedAddOns(prevAddOns => [...prevAddOns, addOns.two.month])
-            // }
+            if(isOn){
+                setSelectedAddOns(prevAddOns => [...prevAddOns, addOns.two.year])
+            }else{
+                setSelectedAddOns(prevAddOns => [...prevAddOns, addOns.two.month])
+            }
         }
         if(state3){
-            setSelectedAddOns(prevAddOns => [...prevAddOns, addOns.three.month])
-            // if(isOn){
-            //     setSelectedAddOns(prevAddOns => [...prevAddOns, addOns.three.year])
-            // }else{
-            //     setSelectedAddOns(prevAddOns => [...prevAddOns, addOns.three.month])
-            // }
+            if(isOn){
+                setSelectedAddOns(prevAddOns => [...prevAddOns, addOns.three.year])
+            }else{
+                setSelectedAddOns(prevAddOns => [...prevAddOns, addOns.three.month])
+            }
         }
-        console.log(state)
+        
     }
 
+    const sum = () => {
 
+        let totalAddOns = selectedAddOns.reduce((prev, item) => {
+            return prev + item;
+        }, 0)
+
+        if(isOn){
+            setTotal(totalAddOns + selectedPlan.year);
+        }else{
+            setTotal(totalAddOns + selectedPlan.month);
+        }
+
+        return total
+    }
     
-    return {
+    return { 
         isOn,
         arcade,
         advanced,
@@ -92,6 +101,8 @@ const useInitialState = () => {
         state3,
         selectedPlan,
         selectedAddOns,
+        total,
+        sum,
         handleSum,
         setSelectedAddOns, 
         setSelectedPlan,

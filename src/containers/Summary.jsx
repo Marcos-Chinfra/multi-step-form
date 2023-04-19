@@ -1,11 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AppContext from '../context/AppContext';
 
 const Summary = () => {
-    const { isOn, arcade, advanced, pro, plans, state,state2,state3, addOns, selectedAddOns } = useContext(AppContext);
-    console.log(selectedAddOns)
-    console.log(state)
+    const { isOn, arcade, advanced, pro, plans, state,state2,state3, addOns, sum, selectedPlan, selectedAddOns, total } = useContext(AppContext);
+
+
+    useEffect(() => {
+        if(selectedPlan && (selectedAddOns != [])){
+            sum()
+        }
+    }, [])
 
     return (
         <div className='flex flex-col p-4 gap-2 lg:w-125 lg:mx-auto lg:p-5' >
@@ -60,7 +65,7 @@ const Summary = () => {
         </section>
         <div className='px-4 py-1 flex justify-between text-Cool-gray text-sm'>
             Total ({isOn ? 'per yearly' : 'per monthly'})
-            <div className='text-Purplish-blue font-bold text-base'>k</div>
+            <div className='text-Purplish-blue font-bold text-base'>{isOn ? `$${total}/yr` : `$${total}/mo`}</div>
         </div>
         <div className='w-full h-20 p-4 bg-white flex justify-between items-center fixed right-0 left-0 bottom-0 lg:static lg:mt-10'>
                 <Link to={'/add-ons'} className='text-Cool-gray cursor-pointer hover:back'>Go Back</Link>

@@ -3,16 +3,14 @@ import { Link } from 'react-router-dom';
 import AppContext from '../context/AppContext';
 
 const Complements = () => {
-    const { isOn, state,state2,state3, setState, setState2, setState3, setSelectedAddOns} = useContext(AppContext);
-    console.log(state)
+    const { isOn, state,state2,state3, setState, setState2, setState3, handleSum, setSelectedAddOns} = useContext(AppContext);
 
-    const handleSum = () => {
-        if(state){
-            setSelectedAddOns('Holaaa')
-        }
-    }
-
-
+    useEffect(() =>{
+        setState(null)
+        setState2(null)
+        setState3(null)
+        setSelectedAddOns([])
+    }, [])
     return (
         <div className='flex flex-col p-4 gap-2' >
             <h1 className='text-2xl font-bold text-Marine-blue'>
@@ -66,8 +64,8 @@ const Complements = () => {
                 </li>
             </ul>
             <div className='w-full h-20 p-4 bg-white flex justify-between items-center fixed right-0 left-0 bottom-0 lg:static lg:mt-10'>
-                <Link to={'/select-plan'} onClick={handleSum} className='text-Cool-gray cursor-pointer hover:back'>Go Back</Link>
-                <Link to={'/summary'} className=' bg-Marine-blue p-2 w-24 h-10 text-white rounded flex justify-center items-center hover:next-bg' >Next Step</Link>
+                <Link to={'/select-plan'}  className='text-Cool-gray cursor-pointer hover:back'>Go Back</Link>
+                <Link to={'/summary'} onClick={handleSum} className=' bg-Marine-blue p-2 w-24 h-10 text-white rounded flex justify-center items-center hover:next-bg' >Next Step</Link>
             </div>
         </div>
     );
