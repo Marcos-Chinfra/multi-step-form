@@ -1,28 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import AppContext from '../context/AppContext';
 
 const Plans = () => {
-    const [isOn, setIsOn] = useState(false);
-    const [arcade, setArcade] = useState(false);
-    const [ advanced, setAdvanced] = useState(false)
-    const [pro, setPro] = useState(false)
+    // const [isOn, setIsOn] = useState(false);
+    // const [arcade, setArcade] = useState(false);
+    // const [ advanced, setAdvanced] = useState(false)
+    // const [pro, setPro] = useState(false)
+    const {isOn, setIsOn, arcade, setArcade,  advanced, setAdvanced, pro, setPro, setSelectedPlan, plans} = useContext(AppContext);
 
     const toggle = () => setIsOn(!isOn);
     const toggleArcade = () => {
         setArcade(true)
         setAdvanced(false)
         setPro(false)
+        setSelectedPlan(plans.Arcade)
     }
     const toggleAdvanced = () => {
         setAdvanced(true)
         setArcade(false)
         setPro(false)
+        setSelectedPlan(plans.Advanced)
     }
     const togglePro = () => {
         setPro(true)
         setAdvanced(false)
         setArcade(false)
+        setSelectedPlan(plans.Pro)
     }
+    
 
     return (
         <div className='flex flex-col p-4 gap-2 lg:w-125'>
@@ -103,9 +109,8 @@ const Plans = () => {
                 </span>
             </div>
             <div className='w-full h-20 p-4 bg-white flex justify-between items-center fixed right-0 left-0 bottom-0 lg:static lg:mt-10'>
-                <Link to={'/'} className='text-Cool-gray cursor-pointer'>Go Back</Link>
-                <Link to={'/add-ons'} className=' bg-Marine-blue -2 w-24 h-10 text-white rounded flex justify-center items-center' >Next Step</Link>
-                {/* <button className=' bg-Marine-blue p-2 w-24 h-10 text-white rounded' > Next Step </button> */}
+                <Link to={'/'} className='text-Cool-gray cursor-pointer hover:back'>Go Back</Link>
+                <Link to={'/add-ons'} className=' bg-Marine-blue p-2 w-24 h-10 text-white rounded flex justify-center items-center hover:next-bg' >Next Step</Link>
             </div>
         </div>
     );

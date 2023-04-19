@@ -44,7 +44,6 @@ const Information = () => {
         {
             setErrorNumber(false)
         }
-        console.log(buyer.name)
     }
     
 
@@ -78,7 +77,7 @@ const Information = () => {
                 
                 <div className='w-full h-20 p-4 bg-white flex justify-end items-center fixed right-0 left-0 bottom-0 lg:static'>
                     <button 
-                        className=' bg-Marine-blue p-2 w-24 h-10 text-white rounded' 
+                        className=' bg-Marine-blue p-2 w-24 h-10 text-white rounded hover:next-bg' 
                         type='submit'
                         >Next Step</button>
                 </div>

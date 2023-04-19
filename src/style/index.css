@@ -43,4 +43,16 @@
         background-color:hsl(231, 100%, 99%);
         border: solid 1px hsl(213, 80%, 30%);
     }
+    .back{
+        color: hsl(213, 80%, 20%);
+    }
+    .next-bg{
+        background-color: hsl(213, 80%, 40%);
+    }
+    .hover-checked {
+        border: solid 1px hsl(213, 80%, 30%);
+    }
+    .hover-confirm{
+        background-color: hsl(228, 100%, 84%);
+    }
 }
